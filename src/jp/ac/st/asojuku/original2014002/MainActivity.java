@@ -40,6 +40,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		Button btnCHECK = (Button)findViewById(R.id.btnCHECK);
 		btnCHECK.setOnClickListener(this);
 
+
+
 		if(sdb == null){
 			helper = new MySQLiteOpenHelper(getApplicationContext());
 		}
