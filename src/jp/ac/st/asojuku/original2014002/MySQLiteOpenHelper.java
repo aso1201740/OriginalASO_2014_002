@@ -18,6 +18,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 	public  MySQLiteOpenHelper(Context context) {
 		super(context, "20140021201740.sqlite3" , null, 1);
 	}
+
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// TODO 自動生成されたメソッド・スタブ
@@ -30,11 +31,14 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO 自動生成されたメソッド・スタブ
 
-		db.execSQL(" drop table Hitokoto ");
+		db.execSQL(" drop table Hitokoto; ");
 		onCreate(db);
 	}
+
+
+
 public void insertHitokoto(SQLiteDatabase db, String inputMsg){
-	String sqlstr = " insert into Hitokoto ( phrase ) values ( ' " + inputMsg +  " ' ) ";
+	String sqlstr = " insert into Hitokoto ( phrase ) values ( ' " + inputMsg +  " ' ); ";
 	try{
 		db.beginTransaction();
 		db.execSQL(sqlstr);
@@ -47,6 +51,9 @@ public void insertHitokoto(SQLiteDatabase db, String inputMsg){
 	}
 	return;
 }
+
+
+
 
 public String selectRandomHitokoto(SQLiteDatabase db){
 	String rtString = null;
@@ -68,11 +75,17 @@ public String selectRandomHitokoto(SQLiteDatabase db){
 	}
 
 
+
+
 public SQLiteCursor selectHitokotoList(SQLiteDatabase db){
+
  SQLiteCursor cursor = null;
- String sqlstr = "SELECT _id, phrase FROM Hitokoto ORDER BY _id";
+
+ String sqlstr = " SELECT _id, phrase FROM Hitokoto ORDER BY _id; ";
  try{
+
 	 cursor = (SQLiteCursor)db.rawQuery(sqlstr, null);
+
 	 if(cursor.getCount()!=0){
 		 cursor.moveToFirst();
 	 }
@@ -84,8 +97,10 @@ public SQLiteCursor selectHitokotoList(SQLiteDatabase db){
  return cursor;
 }
 
-public void deletehitokoto(SQLiteDatabase db, int id){
-	String sqlstr = "DELETE FROM Hitokoto where _id = " + id + ";";
+
+
+public void deleteHitokoto(SQLiteDatabase db, int id){
+	String sqlstr = " DELETE FROM Hitokoto where _id = " + id + ";";
 	try{
 		db.beginTransaction();
 		db.execSQL(sqlstr);

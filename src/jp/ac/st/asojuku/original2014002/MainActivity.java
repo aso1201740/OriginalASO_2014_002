@@ -64,8 +64,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				helper.insertHitokoto(sdb, inputMsg);
 			}
 			etv.setText("");
-			intent = new Intent(MainActivity.this, HitokotoActivity.class);
-			startActivity(intent);
+			//intent = new Intent(MainActivity.this, HitokotoActivity.class);
+			//startActivity(intent);
 			break;
 
 		case R.id.btnMNT:
