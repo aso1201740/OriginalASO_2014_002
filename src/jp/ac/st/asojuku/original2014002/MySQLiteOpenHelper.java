@@ -111,4 +111,6 @@ public void deleteHitokoto(SQLiteDatabase db, int id){
 		db.endTransaction();
 	}
 }
+
+
 }
